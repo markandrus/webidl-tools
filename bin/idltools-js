@@ -14,6 +14,9 @@ var program = util.program(exports, description)
     'Match WebIDL definition names')
   .option('--replace <replacement>', util.wrap(
     'Replace any WebIDL definition names matched with --match', o, w))
+  .option('--only <names>', util.wrap(
+    'Only process WebIDL definitions with the given names', o, w),
+    list)
   .option('--skip <names>',
     'Skip WebIDL definitions with the given names',
     list)

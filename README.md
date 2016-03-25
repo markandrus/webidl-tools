@@ -71,6 +71,8 @@ $ idltools flow --help
     --match <regex>          Match WebIDL definition names
     --replace <replacement>  Replace any WebIDL definition names matched with
                              --match
+    --only <names>           Only process WebIDL definitions with the given
+                             names
     --skip <names>           Skip WebIDL definitions with the given names
     -o, --out <dir>          Directory to write Flow type declarations to
                              (defaults to ./decls)
@@ -93,6 +95,8 @@ $ idltools js --help
     --match <regex>              Match WebIDL definition names
     --replace <replacement>      Replace any WebIDL definition names matched
                                  with --match
+    --only <names>               Only process WebIDL definitions with the
+                                 given names
     --skip <names>               Skip WebIDL definitions with the given names
     --validators                 Generate validators for enums, dictionaries,
                                  etc. (default)
