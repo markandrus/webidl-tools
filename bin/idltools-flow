@@ -5,17 +5,19 @@ var util = require('../lib/util');
 var description = 'Generate Flow type declarations from WebIDL definitions.';
 
 var flow = require('../lib/flow');
+var o = 25;
+var w = 74;
 
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
     'Match WebIDL definition names')
-  .option('--replace <replacement>',
-    'Replace any WebIDL definition names matched with --match')
+  .option('--replace <replacement>', util.wrap(
+    'Replace any WebIDL definition names matched with --match', o, w))
   .option('--skip <names>',
     'Skip WebIDL definitions with the given names', list)
   .option('-o, --out <dir>', util.wrap(
-    'Directory to write Flow type declarations to (defualts to ./decls)', 25),
+    'Directory to write Flow type declarations to (defualts to ./decls)', o, w),
     'decls');
 
 function list(str) {

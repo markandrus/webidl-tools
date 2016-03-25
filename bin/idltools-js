@@ -5,33 +5,40 @@ var util = require('../lib/util');
 var description = 'Generate JavaScript code from WebIDL definitions.';
 
 var js = require('../lib/js');
+var o = 29;
+var w = 74;
 
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
     'Match WebIDL definition names')
-  .option('--replace <replacement>',
-    'Replace any WebIDL definition names matched with --match')
+  .option('--replace <replacement>', util.wrap(
+    'Replace any WebIDL definition names matched with --match', o, w))
   .option('--skip <names>',
-    'Skip WebIDL definitions with the given names', list)
-  .option('--validators',
-    'Generate validators for enums, dictionaries, etc. (default)', true)
+    'Skip WebIDL definitions with the given names',
+    list)
+  .option('--validators', util.wrap(
+    'Generate validators for enums, dictionaries, etc. (default)', o, w),
+    true)
   .option('--no-validators',
     'Do not generate validators')
-  .option('--classes',
-    'Generate classes, e.g., for interfaces with constructors (default)', true)
+  .option('--classes', util.wrap(
+    'Generate classes, e.g., for interfaces with constructors (default)', o, w),
+    true)
   .option('--no-classes',
     'Do not generate classes')
   .option('--flow-types-in-comments',
-    'Include Flow types in comments (default)', true)
+    'Include Flow types in comments (default)',
+    true)
   .option('--no-flow-types-in-comments',
     'Do not include Flow types in comments')
   .option('--jsdoc',
-    'Include JSDoc comments (default)', true)
+    'Include JSDoc comments (default)',
+    true)
   .option('--no-jsdoc',
     'Do not include JSDoc comments')
   .option('-o, --out <file>', util.wrap(
-    'File to write JavaScript code to (defaults to ./definitions.js)', 15),
+    'File to write JavaScript code to (defaults to ./definitions.js)', o, w),
     'definitions.js');
 
 function list(str) {
