@@ -4,6 +4,8 @@
 var util = require('../lib/util');
 var description = 'Generate Flow type declarations from WebIDL definitions.';
 
+var flow = require('../lib/flow');
+
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
@@ -12,8 +14,6 @@ var program = util.program(exports, description)
     'Replace any WebIDL definition names matched with --match')
   .option('--skip <names>',
     'Skip WebIDL definitions with the given names', list)
-  .option('--idls <dir>',
-    'Directory to read WebIDL definitions from')
   .option('-o, --out <dir>', util.wrap(
     'Directory to write Flow type declarations to (defualts to ./decls)', 25),
     'decls');
@@ -24,4 +24,5 @@ function list(str) {
 
 if (require.main === module) {
   program.parse(process.argv);
+  flow(program.args, program);
 }

@@ -4,6 +4,8 @@
 var util = require('../lib/util');
 var description = 'Generate JavaScript code from WebIDL definitions.';
 
+var js = require('../lib/js');
+
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
@@ -28,13 +30,9 @@ var program = util.program(exports, description)
     'Include JSDoc comments (default)', true)
   .option('--no-jsdoc',
     'Do not include JSDoc comments')
-  // .option('-t, --templates <dir>',
-  //   'Override the template directory (defaults to builtin)')
-  .option('--idls <dir>',
-    'Directory to read WebIDL definitions from')
-  .option('-o, --out <dir>', util.wrap(
-    'Directory to write JavaScript code to (defaults to ./decls)', 15),
-    'decls');
+  .option('-o, --out <file>', util.wrap(
+    'File to write JavaScript code to (defaults to ./definitions.js)', 15),
+    'definitions.js');
 
 function list(str) {
   return str.split(',');
@@ -42,4 +40,5 @@ function list(str) {
 
 if (require.main === module) {
   program.parse(process.argv);
+  js(program.args, program);
 }
