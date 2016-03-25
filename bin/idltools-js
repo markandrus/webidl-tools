@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+'use strict';
+
+var util = require('../lib/util');
+var description = 'Generate JavaScript code from WebIDL definitions.';
+
+var program = util.program(exports, description)
+  .usage('[options] <idl ...>')
+  .option('--match <regex>',
+    'Match WebIDL definition names')
+  .option('--replace <replacement>',
+    'Replace any WebIDL definition names matched with --match')
+  .option('--skip <names>',
+    'Skip WebIDL definitions with the given names', list)
+  .option('--validators',
+    'Generate validators for enums, dictionaries, etc. (default)', true)
+  .option('--no-validators',
+    'Do not generate validators')
+  .option('--classes',
+    'Generate classes, e.g., for interfaces with constructors (default)', true)
+  .option('--no-classes',
+    'Do not generate classes')
+  .option('--flow-types-in-comments',
+    'Include Flow types in comments (default)', true)
+  .option('--no-flow-types-in-comments',
+    'Do not include Flow types in comments')
+  .option('--jsdoc',
+    'Include JSDoc comments (default)', true)
+  .option('--no-jsdoc',
+    'Do not include JSDoc comments')
+  // .option('-t, --templates <dir>',
+  //   'Override the template directory (defaults to builtin)')
+  .option('--idls <dir>',
+    'Directory to read WebIDL definitions from')
+  .option('-o, --out <dir>', util.wrap(
+    'Directory to write JavaScript code to (defaults to ./decls)', 15),
+    'decls');
+
+function list(str) {
+  return str.split(',');
+}
+
+if (require.main === module) {
+  program.parse(process.argv);
+}

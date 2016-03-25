@@ -1,0 +1,29 @@
+{
+  "name": "idltools",
+  "version": "0.1.0",
+  "description": "WebIDL Tools",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WebIDL",
+    "IDL"
+  ],
+  "author": "Mark Andrus Roberts <markandrusroberts@gmail.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "commander": "^2.9.0",
+    "ejs": "^2.4.1",
+    "helmsman": "^1.0.3",
+    "highland": "^2.7.2",
+    "request": "^2.69.0",
+    "stream-concat": "^0.1.0",
+    "vinyl": "^1.1.1",
+    "vinyl-fs": "^2.4.2",
+    "webidl2": "^2.0.11",
+    "winston": "^2.2.0"
+  },
+  "bin": "node bin/idltools"
+}

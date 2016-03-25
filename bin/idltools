@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+'use strict';
+
+var lines = [];
+var log = console.log;
+console.log = function log() {
+  lines.push(arguments);
+}
+var exit = process.exit;
+process.exit = function exit() {
+  // Do nothing;
+}
+
+var helmsman = require('helmsman')();
+var help = false;
+helmsman.once('--help', function() {
+  help = true;
+});
+helmsman.parse();
+
+console.log = log;
+process.exit = exit;
+
+lines.shift();
+lines.shift();
+lines.shift();
+
+if (help) {
+  console.log(`
+  Usage: idltools <sub-command> [options]
+
+  idltools provides a suite of commands for extracting and transforming WebIDL.
+
+  Commands:
+`);
+}
+
+lines.forEach(function(line) {
+  line[0] = ' ' + line[0];
+  console.log.apply(console, line);
+});
+
+if (help) {
+  console.log();
+}
