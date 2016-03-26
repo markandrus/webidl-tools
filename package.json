@@ -1,5 +1,5 @@
 {
-  "name": "idltools",
+  "name": "webidl-tools",
   "version": "0.1.0",
   "description": "WebIDL Tools",
   "main": "lib/index.js",
@@ -8,7 +8,9 @@
   },
   "keywords": [
     "WebIDL",
-    "IDL"
+    "IDL",
+    "Flow",
+    "validation"
   ],
   "author": "Mark Andrus Roberts <markandrusroberts@gmail.com>",
   "license": "BSD-3-Clause",
@@ -25,5 +27,5 @@
     "webidl2": "^2.0.11",
     "winston": "^2.2.0"
   },
-  "bin": "node bin/idltools"
+  "bin": "node bin/webidl-tools"
 }

@@ -1,7 +1,8 @@
-idltools
-========
+webidl-tools
+============
 
-idltools provides a suite of commands for extracting and transforming WebIDL.
+webidl-tools provides a suite of commands for extracting and transforming
+WebIDL.
 
 * Extract WebIDL definitions from HTML documents (for example, W3C
   specifications).
@@ -12,18 +13,19 @@ Install
 -------
 
 ```
-npm install -g idltools
+npm install -g webidl-tools
 ```
 
 Usage
 -----
 
 ```
-$ idltools --help
+$ webidl-tools --help
 
-  Usage: idltools <sub-command> [options]
+  Usage: webidl-tools <sub-command> [options]
 
-  idltools provides a suite of commands for extracting and transforming WebIDL.
+  webidl-tools provides a suite of commands for extracting and transforming
+  WebIDL.
 
   Commands:
 
@@ -40,9 +42,9 @@ $ idltools --help
 ### extract
 
 ```
-$ idltools extract --help
+$ webidl-tools extract --help
 
-  Usage: idltools-extract [options] <html ...>
+  Usage: webidl-tools-extract [options] <html ...>
 
   Extract WebIDL definitions from HTML documents (for example, W3C
   specifications). This command also accepts URLs.
@@ -58,9 +60,9 @@ $ idltools extract --help
 ### flow
 
 ```
-$ idltools flow --help
+$ webidl-tools flow --help
 
-  Usage: idltools-flow [options] <idl ...>
+  Usage: webidl-tools-flow [options] <idl ...>
 
   Generate Flow type declarations from WebIDL definitions.
 
@@ -82,9 +84,9 @@ $ idltools flow --help
 ### js
 
 ```
-$ idltools js --help
+$ webidl-tools js --help
 
-  Usage: idltools-js [options] <idl ...>
+  Usage: webidl-tools-js [options] <idl ...>
 
   Generate JavaScript code from WebIDL definitions.
 

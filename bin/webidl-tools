@@ -27,9 +27,10 @@ lines.shift();
 
 if (help) {
   console.log(`
-  Usage: idltools <sub-command> [options]
+  Usage: webidl-tools <sub-command> [options]
 
-  idltools provides a suite of commands for extracting and transforming WebIDL.
+  webidl-tools provides a suite of commands for extracting and transforming
+  WebIDL.
 
   Commands:
 `);
