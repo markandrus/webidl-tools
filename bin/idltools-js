@@ -11,7 +11,8 @@ var w = 74;
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
-    'Match WebIDL definition names')
+    'Match WebIDL definition names',
+    regex)
   .option('--replace <replacement>', util.wrap(
     'Replace any WebIDL definition names matched with --match', o, w))
   .option('--only <names>', util.wrap(
@@ -20,16 +21,6 @@ var program = util.program(exports, description)
   .option('--skip <names>',
     'Skip WebIDL definitions with the given names',
     list)
-  .option('--validators', util.wrap(
-    'Generate validators for enums, dictionaries, etc. (default)', o, w),
-    true)
-  .option('--no-validators',
-    'Do not generate validators')
-  .option('--classes', util.wrap(
-    'Generate classes, e.g., for interfaces with constructors (default)', o, w),
-    true)
-  .option('--no-classes',
-    'Do not generate classes')
   .option('--flow-types-in-comments',
     'Include Flow types in comments (default)',
     true)
@@ -46,6 +37,10 @@ var program = util.program(exports, description)
 
 function list(str) {
   return str.split(',');
+}
+
+function regex(str) {
+  return new RegExp(str);
 }
 
 if (require.main === module) {

@@ -11,7 +11,8 @@ var w = 74;
 var program = util.program(exports, description)
   .usage('[options] <idl ...>')
   .option('--match <regex>',
-    'Match WebIDL definition names')
+    'Match WebIDL definition names',
+    regex)
   .option('--replace <replacement>', util.wrap(
     'Replace any WebIDL definition names matched with --match', o, w))
   .option('--only <names>', util.wrap(
@@ -25,6 +26,10 @@ var program = util.program(exports, description)
 
 function list(str) {
   return str.split(',');
+}
+
+function regex(str) {
+  return new RegExp(str);
 }
 
 if (require.main === module) {
