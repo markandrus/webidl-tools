@@ -1,5 +1,5 @@
 type <%= node.name %> = {
 <%_ node.members.forEach((member, i) => { _%>
-  <%- loadTemplate('flow/attribute.ejs')({ member: member }) -%><%= i === node.members.length - 1 ? '' : ',' %>
+  <%- template('flow/attribute.ejs')({ member: member }) -%><%= i === node.members.length - 1 ? '' : ',' %>
 <%_ }) _%>
 };

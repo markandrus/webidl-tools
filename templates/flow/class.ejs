@@ -1,9 +1,9 @@
 declare class <%= node.name %><%= node.inheritance ? ' extends ' + node.inheritance : '' %> {
 <%_ node.members.forEach((member, i) => { _%>
 <%_ if (member.type === 'attribute') { _%>
-  <%- loadTemplate('flow/attribute.ejs')({ member: member }) -%>;
+  <%- template('flow/attribute.ejs')({ member: member }) -%>;
 <%_ } else if (member.type === 'operation') { _%>
-  <%- loadTemplate('flow/operation.ejs')({ member: member }) %>
+  <%- template('flow/operation.ejs')({ member: member }) %>
 <%_ } _%>
 <%_ }) _%>
 };

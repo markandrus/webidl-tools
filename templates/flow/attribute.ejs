@@ -1,1 +1,1 @@
-<%= member.name %><%= 'required' in member && !member.required ? '?' : '' %>: <%- loadTemplate('flow/type.ejs')({ idlType: member.idlType }) -%>
+<%= member.name %><%= 'required' in member && !member.required ? '?' : '' %>: <%- template('flow/type.ejs')({ idlType: member.idlType }) -%>
