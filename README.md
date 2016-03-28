@@ -3,7 +3,7 @@ webidl-tools
 
 [![NPM](https://img.shields.io/npm/v/webidl-tools.svg)](https://www.npmjs.com/package/webidl-tools) [![Build Status](https://travis-ci.org/markandrus/webidl-tools.svg?branch=master)](https://travis-ci.org/markandrus/webidl-tools)
 
-_**Note:** This project is a work-in-progress and exists primarily to enable my
+_**Note:** This project is a work-in-progress and exists primarily to enable
 some pet projects. As such, it is tuned to those use cases. If you need
 additional functionality, bug fixes, etc., please open a pull request._
 
