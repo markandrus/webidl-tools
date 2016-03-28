@@ -1,5 +1,5 @@
 <%_ if (typeof idlType === 'string') { _%>
-<%= idlType -%>
+<%- idlType -%>
 <%_ } else if (idlType instanceof Array) { _%>
 <%_ idlType.forEach((type, i) => { _%>
 <%- template('flow/type.ejs')({ idlType: type }) -%><%= i === idlType.length - 1 ? '' : ' | ' -%>
