@@ -16,16 +16,6 @@ var program = util.program(exports, description)
   .usage('[options] <idl ...>');
 
 webidl.addOptions(program, o, w, { merge: true })
-  .option('--flow-types-in-comments',
-    'Include Flow types in comments (default)',
-    true)
-  .option('--no-flow-types-in-comments',
-    'Do not include Flow types in comments')
-  .option('--jsdoc',
-    'Include JSDoc comments (default)',
-    true)
-  .option('--no-jsdoc',
-    'Do not include JSDoc comments')
   .option('-o, --out <file>', util.wrap(
     'File to write JavaScript code to (defaults to ./definitions.js)', o, w),
     'definitions.js');
@@ -39,6 +29,7 @@ function regex(str) {
 }
 
 if (require.main === module) {
+  var idls = program.args.length ? program.args : ['idl/*'];
   program.parse(process.argv);
-  js(program.args, program);
+  js(idls, program);
 }
