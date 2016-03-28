@@ -4,7 +4,7 @@
   "description": "WebIDL Tools",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./bin/webidl-tools extract https://w3c.github.io/webrtc-pc/archives/20160215/webrtc.html --rename 'AlgorithmIdentifier|MediaStream|WorkerGlobalScope/Object' && node ./bin/webidl-tools flow && node ./bin/webidl-tools js && flow check"
   },
   "keywords": [
     "WebIDL",
@@ -30,5 +30,8 @@
     "webidl2": "git://github.com/markandrus/webidl2.js.git#e470735423d73fbbc20d472d9e0174592b80a463",
     "winston": "^2.2.0"
   },
-  "bin": "node bin/webidl-tools"
+  "bin": "node bin/webidl-tools",
+  "devDependencies": {
+    "flow-bin": "^0.22.1"
+  }
 }
