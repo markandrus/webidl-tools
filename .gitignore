@@ -1,4 +1,5 @@
-node_modules
-idl
+.flowconfig
 decls
 definitions.js
+idl
+node_modules
