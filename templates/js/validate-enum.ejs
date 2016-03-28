@@ -1,0 +1,12 @@
+function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %> */ {
+  switch (unvalidated) {
+<% node.values.forEach(value => { -%>
+    case '<%= value %>':
+<% }); -%>
+      return unvalidated;
+    default:
+      throw new Error('Invalid <%= node.name %> "' + unvalidated + '"');
+  }
+}
+
+exports.validate<%= node.name %> = validate<%= node.name %>;

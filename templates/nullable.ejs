@@ -1,0 +1,8 @@
+validateNullable(validate, unvalidated) {
+  if (unvalidated === null) {
+    return unvalidated;
+  }
+  return validate(unvalidated);
+}
+
+exports.validateNullable = validateNullable;

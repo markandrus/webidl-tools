@@ -6,11 +6,16 @@ var description = 'Extract WebIDL definitions from HTML documents (for ' +
   'example, W3C specifications). This command also accepts URLs.';
 
 var extract = require('../lib/extract');
+var webidl = require('../lib/webidl');
+var o = 21;
+var w = 74;
 
 var program = util.program(exports, description)
   .usage('[options] <html ...>')
+
+webidl.addOptions(program, o, w)
   .option('-o, --out <dir>', util.wrap(
-    'Directory to write the WebIDL to (defaults to ./idl)', 15),
+    'Directory to write the WebIDL to (defaults to ./idl)', o),
     'idl');
 
 if (require.main === module) {

@@ -2,24 +2,19 @@
 'use strict';
 
 var util = require('../lib/util');
-var description = 'Generate Flow type declarations from WebIDL definitions.';
+var description = 'Generate Flow type declarations from WebIDL definitions. ' +
+  'If multiple WebIDL definitions with the same name are provided, they will ' +
+  'be merged. This command also accepts URLs.';
 
 var flow = require('../lib/flow');
-var o = 25;
+var webidl = require('../lib/webidl');
+var o = 21;
 var w = 74;
 
 var program = util.program(exports, description)
-  .usage('[options] <idl ...>')
-  .option('--match <regex>',
-    'Match WebIDL definition names',
-    regex)
-  .option('--replace <replacement>', util.wrap(
-    'Replace any WebIDL definition names matched with --match', o, w))
-  .option('--only <names>', util.wrap(
-    'Only process WebIDL definitions with the given names', o, w),
-    list)
-  .option('--skip <names>',
-    'Skip WebIDL definitions with the given names', list)
+  .usage('[options] <idl ...>');
+
+webidl.addOptions(program, o, w, { merge: true })
   .option('-o, --out <dir>', util.wrap(
     'Directory to write Flow type declarations to (defualts to ./decls)', o, w),
     'decls');

@@ -2,25 +2,20 @@
 'use strict';
 
 var util = require('../lib/util');
-var description = 'Generate JavaScript code from WebIDL definitions.';
+var description = 'Generate JavaScript code from WebIDL definitions. The ' +
+  'generated code can be used to validate WebIDL enums and dictionaries. If ' +
+  'multiple WebIDL definitions with the same name are provided, they will ' +
+  'be merged. This command also accepts URLs.';
 
 var js = require('../lib/js');
+var webidl = require('../lib/webidl');
 var o = 29;
 var w = 74;
 
 var program = util.program(exports, description)
-  .usage('[options] <idl ...>')
-  .option('--match <regex>',
-    'Match WebIDL definition names',
-    regex)
-  .option('--replace <replacement>', util.wrap(
-    'Replace any WebIDL definition names matched with --match', o, w))
-  .option('--only <names>', util.wrap(
-    'Only process WebIDL definitions with the given names', o, w),
-    list)
-  .option('--skip <names>',
-    'Skip WebIDL definitions with the given names',
-    list)
+  .usage('[options] <idl ...>');
+
+webidl.addOptions(program, o, w, { merge: true })
   .option('--flow-types-in-comments',
     'Include Flow types in comments (default)',
     true)

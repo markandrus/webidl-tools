@@ -1,0 +1,31 @@
+function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %> */ {
+  if (typeof unvalidated !== 'object') {
+    throw new Error('<%= node.name %> must be an object');
+  }
+
+  var validated = {};
+
+<% node.members.forEach(member => { -%>
+<% if (member.required) { -%>
+  if (!('<%= member.name %>' in unvalidated)) {
+    throw new Error('<%= member.name %> is required');
+  }
+
+  validated.<%= member.name %> = <%= parseFn(member.idlType) %>(unvalidated.<%= member.name %>);
+<% } else { -%>
+  if ('<%= member.name %>' in unvalidated) {
+    validated.<%= member.name %> = <%= parseFn(member.idlType) %>(unvalidated.<%= member.name %>);
+<% if (member.default) { -%>
+  } else {
+    validated.<%= member.name %> = <%- JSON.stringify(member.default.value) %>;
+  }
+<% } else {-%>
+  }
+<% } -%>
+<% } -%>
+
+<% }); -%>
+  return validated;
+}
+
+exports.validate<%= node.name %> = validate<%= node.name %>;

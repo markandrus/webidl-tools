@@ -1,0 +1,4 @@
+type <%= node.name %>
+<% node.values.forEach((value, i) => { -%>
+  <%= i === 0 ? '=' : '|' %> "<%= value %>"<%= i === node.values.length - 1 ? ';' : '' %>
+<% }) -%>

@@ -1,0 +1,1 @@
+<%= member.static ? 'static ' : '' %><%= member.name %><%- loadTemplate('flow/arguments.ejs')({ arguments: member.arguments }) -%>: <%- loadTemplate('flow/type.ejs')({ idlType: member.idlType }) -%>;
