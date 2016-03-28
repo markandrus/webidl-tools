@@ -28,15 +28,11 @@ Example
 Set your `.flowconfig` to
 
 ```
-[ignore]
-
 [include]
 validators.js
 
 [libs]
 decls
-
-[options]
 ```
 
 Then run
