@@ -20,6 +20,47 @@ Install
 npm install -g webidl-tools
 ```
 
+Example
+-------
+
+Set your `.flowconfig` to
+
+```
+[ignore]
+
+[include]
+validators.js
+
+[libs]
+decls
+
+[options]
+```
+
+Then run
+
+```
+webidl-tools extract \
+  https://w3c.github.io/webrtc-pc/archives/20160215/webrtc.html \
+  --rename 's/AlgorithmIdentifier|MediaStream|WorkerGlobalScope/Object/'
+webidl-tools flow
+webidl-tools js
+flow check
+```
+
+The file `validators.js` will contain typechecked validators for enums and
+dictionaries defined in the WebIDL. For example,
+
+```
+$ node
+> var validators = require('./validators');
+undefined
+> validators.validateRTCIceRole('controlling')
+"controlling"
+> validators.validateRTCIceRole('foo')
+TypeError: Invalid RTCIceRole "foo"
+```
+
 Usage
 -----
 
@@ -148,6 +189,6 @@ $ webidl-tools js --help
     --jsdoc                      Include JSDoc comments (default)
     --no-jsdoc                   Do not include JSDoc comments
     -o, --out <file>             File to write JavaScript code to (defaults
-                                 to ./definitions.js)
+                                 to ./validators.js)
 
 ```

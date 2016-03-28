@@ -5,7 +5,7 @@ function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %>
 <% }); -%>
       return unvalidated;
     default:
-      throw new Error('Invalid <%= node.name %> "' + unvalidated + '"');
+      throw new TypeError('Invalid <%= node.name %> "' + unvalidated + '"');
   }
 }
 

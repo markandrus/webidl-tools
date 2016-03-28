@@ -1,5 +1,5 @@
 .flowconfig
 decls
-definitions.js
 idl
 node_modules
+validators.js

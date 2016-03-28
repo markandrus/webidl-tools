@@ -1,6 +1,6 @@
 function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %> */ {
   if (typeof unvalidated !== 'object') {
-    throw new Error('<%= node.name %> must be an object');
+    throw new TypeError('<%= node.name %> must be an object');
   }
 
   var validated = {};
@@ -8,7 +8,7 @@ function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %>
 <% node.members.forEach(member => { -%>
 <% if (member.required) { -%>
   if (!('<%= member.name %>' in unvalidated)) {
-    throw new Error('<%= member.name %> is required');
+    throw new TypeError('<%= member.name %> is required');
   }
 
   validated['<%= member.name %>'] = makeValidation(<%= template('js/validate.ejs')({ idlType: member.idlType }) %>)(unvalidated['<%= member.name %>']);
