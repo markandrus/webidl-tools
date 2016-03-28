@@ -10,7 +10,10 @@
     "WebIDL",
     "IDL",
     "Flow",
-    "validation"
+    "validate",
+    "validation",
+    "validators",
+    "code generation"
   ],
   "author": "Mark Andrus Roberts <markandrusroberts@gmail.com>",
   "license": "BSD-3-Clause",
