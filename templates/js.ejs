@@ -1,6 +1,6 @@
 // @flow
 
-function makeValidation() {
+function makeValidator() {
   var validators = [].slice.call(arguments);
   return validators.reduceRight((g, f) => {
     console.log(f, g);

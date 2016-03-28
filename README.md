@@ -42,7 +42,7 @@ Then run
 ```
 webidl-tools extract \
   https://w3c.github.io/webrtc-pc/archives/20160215/webrtc.html \
-  --rename 's/AlgorithmIdentifier|MediaStream|WorkerGlobalScope/Object/'
+  --rename 'AlgorithmIdentifier|MediaStream|WorkerGlobalScope/Object'
 webidl-tools flow
 webidl-tools js
 flow check
