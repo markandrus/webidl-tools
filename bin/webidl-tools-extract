@@ -7,7 +7,7 @@ var description = 'Extract WebIDL definitions from HTML documents (for ' +
 
 var extract = require('../lib/extract');
 var webidl = require('../lib/webidl');
-var o = 21;
+var o = 23;
 var w = 74;
 
 var program = util.program(exports, description)

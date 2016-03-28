@@ -2,7 +2,7 @@ webidl-tools
 ============
 
 webidl-tools provides a suite of commands for extracting and transforming
-WebIDL.
+[WebIDL](https://www.w3.org/TR/WebIDL/).
 
 * Extract WebIDL definitions from HTML documents (for example, W3C
   specifications).
@@ -59,18 +59,19 @@ $ webidl-tools extract --help
 
     -h, --help             output usage information
     -V, --version          output the version number
-    --rename <s/foo/bar/>  Rename WebIDL interface, argument, etc., names (can
-                         be specified multiple times; applied after --skip)
-    --only </foo/>         Only process WebIDL definitions with the given name
-                         (can be specified multiple times)
-    --skip </foo/>         Skip WebIDL definitions with the given name (can be
-                         specified multiple times; applied after --only)
+    --rename <s/foo/bar/>  Rename WebIDL interface, argument, etc., names
+                           (can be specified multiple times; applied after
+                           --skip)
+    --only </foo/>         Only process WebIDL definitions with the given
+                           name (can be specified multiple times)
+    --skip </foo/>         Skip WebIDL definitions with the given name (can
+                           be specified multiple times; applied after --only)
     -b, --bail             Exit on WebIDL parse failure
     --merge                Merge WebIDL definitions by unioning interface and
-                         dictionary members
+                           dictionary members
     --no-merge             Don't merge WebIDL definitions; if a merge is
-                         required and this option is specified, the process
-                         exits
+                           required and this option is specified, the process
+                           exits
     -o, --out <dir>        Directory to write the WebIDL to (defaults to ./idl)
 
 ```
@@ -90,20 +91,21 @@ $ webidl-tools flow --help
 
     -h, --help             output usage information
     -V, --version          output the version number
-    --rename <s/foo/bar/>  Rename WebIDL interface, argument, etc., names (can
-                         be specified multiple times; applied after --skip)
-    --only </foo/>         Only process WebIDL definitions with the given name
-                         (can be specified multiple times)
-    --skip </foo/>         Skip WebIDL definitions with the given name (can be
-                         specified multiple times; applied after --only)
+    --rename <s/foo/bar/>  Rename WebIDL interface, argument, etc., names
+                           (can be specified multiple times; applied after
+                           --skip)
+    --only </foo/>         Only process WebIDL definitions with the given
+                           name (can be specified multiple times)
+    --skip </foo/>         Skip WebIDL definitions with the given name (can
+                           be specified multiple times; applied after --only)
     -b, --bail             Exit on WebIDL parse failure
     --merge                Merge WebIDL definitions by unioning interface and
-                         dictionary members (default)
+                           dictionary members (default)
     --no-merge             Don't merge WebIDL definitions; if a merge is
-                         required and this option is specified, the process
-                         exits
+                           required and this option is specified, the process
+                           exits
     -o, --out <dir>        Directory to write Flow type declarations to
-                         (defualts to ./decls)
+                           (defualts to ./decls)
 
 ```
 

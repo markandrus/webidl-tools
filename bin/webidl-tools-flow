@@ -8,7 +8,7 @@ var description = 'Generate Flow type declarations from WebIDL definitions. ' +
 
 var flow = require('../lib/flow');
 var webidl = require('../lib/webidl');
-var o = 21;
+var o = 23;
 var w = 74;
 
 var program = util.program(exports, description)
