@@ -1,8 +1,0 @@
-validateArray(validate, unvalidated) {
-  if (!(unvalidated instanceof Array)) {
-    throw new Error('Expected an Array');
-  }
-  return unvalidated.map(validate);
-}
-
-exports.validateArray = validateArray;
