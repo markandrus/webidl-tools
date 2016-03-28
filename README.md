@@ -1,6 +1,10 @@
 webidl-tools
 ============
 
+_**Note:** This project is a work-in-progress and exists primarily to enable my
+some pet projects. As such, it is tuned to those use cases. If you need
+additional functionality, bug fixes, etc., please open a pull request._
+
 webidl-tools provides a suite of commands for extracting and transforming
 [WebIDL](https://www.w3.org/TR/WebIDL/).
 
