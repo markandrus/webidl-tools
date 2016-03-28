@@ -1,0 +1,5 @@
+function validate<%= node.name[0].toUpperCase() + node.name.slice(1) %>(unvalidated /* : any */) /* : <%= node.name %> */ {
+  return makeValidation(<%= template('js/validate.ejs')({ idlType: node.idlType }) %>)(unvalidated);
+}
+
+exports.validate<%= node.name[0].toUpperCase() + node.name.slice(1) %> = validate<%= node.name[0].toUpperCase() + node.name.slice(1) %>;

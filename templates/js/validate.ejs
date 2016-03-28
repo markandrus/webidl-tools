@@ -1,0 +1,17 @@
+<%_ if (idlType instanceof Array) { _%>
+<%- template('js/union.ejs')({ idlTypes: idlType }) -%>
+<%_ } else if (typeof idlType === 'object') { _%>
+<%_ if (idlType.nullable) { _%>
+validateNullable, <% -%>
+<%_ } _%>
+<%_ if (idlType.generic) { _%>
+<%_ if (idlType.generic === 'Array' || idlType.generic === 'sequence') { _%>
+validateArray, <% -%>
+<%_ } else { _%>
+validate<%= idlType.generic[0].toUpperCase() + idlType.generic.slice(1) %>, <% -%>
+<%_ } _%>
+<%_ } _%>
+<%- template('js/validate.ejs')({ idlType: idlType.idlType }) -%>
+<%_ } else if (typeof idlType === 'string') { _%>
+validate<%= idlType[0].toUpperCase() + idlType.slice(1) %>
+<%_ } _%>

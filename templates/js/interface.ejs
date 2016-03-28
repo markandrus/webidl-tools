@@ -1,0 +1,8 @@
+function validate<%= node.name[0].toUpperCase() + node.name.slice(1) %>(unvalidated /* : any */) /* : <%= node.name %> */ {
+  if (!(unvalidated instanceof <%= node.name %>)) {
+    throw new TypeError('Expected an instance of <%= node.name %>');
+  }
+  return unvalidated;
+}
+
+exports.validate<%= node.name[0].toUpperCase() + node.name.slice(1) %> = validate<%= node.name[0].toUpperCase() + node.name.slice(1) %>;

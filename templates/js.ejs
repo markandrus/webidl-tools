@@ -1,0 +1,89 @@
+// @flow
+
+function makeValidation() {
+  var validators = [].slice.call(arguments);
+  return validators.reduceRight((g, f) => {
+    console.log(f, g);
+    return f(g);
+  });
+}
+
+function validateArray(validator) {
+  return function validateArray(unvalidated) {
+    if (!(unvalidated instanceof Array)) {
+      throw new TypeError('Expected an Array');
+    }
+    return unvalidated.map(validator);
+  }
+}
+
+function validateUnion() {
+  var validators = [].slice.call(arguments);
+  return function validateUnion(unvalidated) {
+    for (var i = 0; i < validators.length; i++) {
+      try {
+        console.log(validators[i]);
+        return validators[i](unvalidated);
+      } catch (error) {
+        console.error(error);
+        void error;
+      }
+    }
+    throw new TypeError('Unable to validate union');
+  };
+}
+
+function validateString(unvalidated /* : any */) /* : string */ {
+  if (typeof unvalidated !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+  return unvalidated;
+}
+
+function validateNumber(unvalidated /* : any */) /* : number */ {
+  if (typeof unvalidated !== 'number') {
+    throw new TypeError('Expected a number');
+  }
+  return unvalidated;
+}
+
+function validateBoolean(unvalidated /* : any */) /* : boolean */ {
+  if (typeof unvalidated !== 'boolean') {
+    throw new TypeError('Expected a boolean');
+  }
+  return unvalidated;
+}
+
+function validateNullable(validator) {
+  return function validateNullable(unvalidated) {
+    if (unvalidated === null) {
+      return unvalidated;
+    }
+    return validator(unvalidated);
+  }
+}
+
+function validateObject(unvalidated /* : any */) /* : Object */ {
+  if (typeof unvalidated !== 'object') {
+    throw new TypeError('Expected an object');
+  }
+  return unvalidated;
+}
+
+var validateObject = validateObject;
+
+<%_ nodes.forEach(node => { _%>
+<%_ if (node.type === 'interface') { _%>
+<%- template('js/interface.ejs')({ node: node }) %>
+
+<%_ } else if (node.type === 'dictionary') { _%>
+<%- template('js/dictionary.ejs')({ node: node }) %>
+
+<%_ } else if (node.type === 'enum') { _%>
+<%- template('js/enum.ejs')({ node: node }) %>
+
+<%_ } else if (node.type === 'typedef') { _%>
+<%- template('js/typedef.ejs')({ node: node }) %>
+
+<%_ } _%>
+<%_ }) _%>

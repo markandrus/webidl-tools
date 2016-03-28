@@ -1,0 +1,1 @@
+<%_ if (member.idlType && (member.idlType.sequence || member.idlType.generic === 'Array')) { _%>[]<%_ } else if (member.default.type === 'string') { _%><%- JSON.stringify(member.default.value) -%><%_ } else if (member.default.type === 'null') { _%>null<%_ } else { _%><%- member.default.value -%><%_ } _%>

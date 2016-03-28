@@ -24,7 +24,7 @@
     "stream-concat": "^0.1.0",
     "vinyl": "^1.1.1",
     "vinyl-fs": "^2.4.2",
-    "webidl2": "git://github.com/markandrus/webidl2.js.git#a0ce36cdaa019a85f7af8b535d1ef4d2db4195c2",
+    "webidl2": "git://github.com/markandrus/webidl2.js.git#e470735423d73fbbc20d472d9e0174592b80a463",
     "winston": "^2.2.0"
   },
   "bin": "node bin/webidl-tools"
