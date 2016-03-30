@@ -34,7 +34,7 @@
     "webidl2": "git://github.com/markandrus/webidl2.js.git#e470735423d73fbbc20d472d9e0174592b80a463",
     "winston": "^2.2.0"
   },
-  "bin": "node bin/webidl-tools",
+  "bin": "bin/webidl-tools",
   "devDependencies": {
     "flow-bin": "^0.22.1"
   }
