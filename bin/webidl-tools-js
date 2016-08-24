@@ -20,16 +20,8 @@ webidl.addOptions(program, o, w, { merge: true })
     'File to write JavaScript code to (defaults to ./validators.js)', o, w),
     'validators.js');
 
-function list(str) {
-  return str.split(',');
-}
-
-function regex(str) {
-  return new RegExp(str);
-}
-
 if (require.main === module) {
-  var idls = program.args && program.args.length ? program.args : ['idl/*'];
   program.parse(process.argv);
+  var idls = program.args && program.args.length ? program.args : ['idl/*'];
   js(idls, program);
 }

@@ -1,0 +1,9 @@
+#include "<%- header %>"
+
+using <%- namespace %>::<%- node.name %>;
+
+<%_ if (node.type === 'dictionary') { _%>
+<%_ } else if (node.type === 'enum') { _%>
+<%-   template('c++/enum.cc.ejs')({ node: node }); %>
+<%_ } _%>
+

@@ -1,0 +1,33 @@
+using v8::Local;
+using v8::String;
+using v8::Value;
+
+static std::string <%- node.name %>ToString(<%- node.name %> parsed) {
+  switch (parsed) {
+<%_ node.values.forEach(value => { _%>
+    case <%- namespace %>::k<%- cppEnum(value) %>:
+      return "<%- node.name %>";
+<%_ }) _%>
+  }
+}
+
+Local<Value> <%- node.name %>ToV8(<%- node.name %> parsed) {
+  Nan::EscapableHandleScope scope;
+  return scope.Escape(Nan::New<String>(<%- node.name %>ToString(parsed)).ToLocalChecked());
+}
+
+static Nan::Maybe<<%- node.name %>> <%- node.name %>FromString(std::string unparsed, std::string *error) {
+<%_ node.values.forEach((value, i) => { _%>
+  <%- i > 0 ? '} else ' : '' %>if (unparsed.compare("<%- value %>") == 0) {
+    return Nan::Just<<%- node.name %>>(<%- namespace %>::k<%- cppEnum(value) %>);
+<%_ }) _%>
+  }
+  if (error != nullptr) {
+    *error = "The provided value '" + unparsed + "' is not a valid enum value of type <%- node.name %>.";
+  }
+  return Nan::Nothing<<%- node.name %>>();
+}
+
+Nan::Maybe<<%- node.name %>> <%- node.name %>FromV8(Local<Value> unparsed, std::string *error) {
+  return <%- node.name %>FromString(std::string(*String::Utf8Value(unparsed->ToString())), error);
+}

@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+'use strict';
+
+var util = require('../lib/util');
+var description = 'Generate C++ code from WebIDL definitions. If multiple ' +
+  'WebIDL definitions with the same name are provided, they will be merged. ' +
+  'This command also accepts URLs.';
+
+var cpp = require('../lib/c++');
+var webidl = require('../lib/webidl');
+var o = 23;
+var w = 74;
+
+var program = util.program(exports, description)
+  .usage('[options] <idl ...>');
+
+webidl.addOptions(program, o, w, { merge: true })
+  .option('--namespace <namespace>', util.wrap(
+    'The C++ namespace to use (defaults to "webidl_tools")', o, w),
+    'webidl_tools')
+  .option('-o, --out <file>', util.wrap(
+    'Directory to write C++ code to (defaults to ./src)', o, w),
+    'src')
+  .option('--suffix <suffix>', util.wrap(
+    'The suffix to use for C++ files (defaults to "cc")', o, w),
+    'cc')
+
+if (require.main === module) {
+  program.parse(process.argv);
+  var idls = program.args && program.args.length ? program.args : ['idl/*'];
+  cpp(idls, program);
+}

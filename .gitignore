@@ -1,4 +1,5 @@
 decls
 idl
 node_modules
+src
 validators.js

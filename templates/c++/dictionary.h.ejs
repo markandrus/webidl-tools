@@ -1,0 +1,28 @@
+class <%- node.name %> {
+ public:
+<%_ if (!node.members.length) { _%>
+<%- '  ' + node.name + '() {};' -%>
+<%_ } else { _%>
+  <%- node.name %>(
+<%_ node.members.forEach((member, i) => { _%>
+    <%- memberType(member) %> <%- member.name %><%- i < node.members.length - 1 ? ',' : ')' %>
+<%_ }) _%>
+<%_ node.members.forEach((member, i) => { _%>
+  <%- i > 0 ? ',' : ':' %> _<%- member.name %>(<%- member.name %>) <%- i === node.members.length - 1 ? '{};' : '' %>
+<%_ }) _%>
+<%_ } _%>
+
+<%_ node.members.forEach(member => { _%>
+  <%- memberType(member) %> <%- member.name %>() { return _<%- member.name %>; };
+<%_ }) _%>
+
+  static v8::Local<v8::Value> ToV8(<%- node.name %> *parsed);
+  static Nan::Maybe<<%- node.name %>*> FromV8(v8::Local<v8::Value> unparsed, std::string *error);
+<%_ if (node.members.length) { _%>
+
+ private:
+<%_ node.members.forEach(member => { _%>
+  <%- memberType(member) %> _<%- member.name %>;
+<%_ }) _%>
+<%_ } _%>
+};

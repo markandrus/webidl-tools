@@ -28,7 +28,7 @@ function regex(str) {
 }
 
 if (require.main === module) {
-  var idls = program.args && program.args.length ? program.args : ['idl/*'];
   program.parse(process.argv);
+  var idls = program.args && program.args.length ? program.args : ['idl/*'];
   flow(idls, program);
 }
