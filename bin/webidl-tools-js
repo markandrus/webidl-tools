@@ -9,7 +9,7 @@ var description = 'Generate JavaScript code from WebIDL definitions. The ' +
 
 var js = require('../lib/js');
 var webidl = require('../lib/webidl');
-var o = 29;
+var o = 23;
 var w = 74;
 
 var program = util.program(exports, description)

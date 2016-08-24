@@ -13,7 +13,7 @@ var w = 74;
 var program = util.program(exports, description)
   .usage('[options] <html ...>')
 
-webidl.addOptions(program, o, w)
+webidl.addOptions(program, o, w, { merge: undefined })
   .option('-o, --out <dir>', util.wrap(
     'Directory to write the WebIDL to (defaults to ./idl)', o),
     'idl');

@@ -112,7 +112,7 @@ $ webidl-tools extract --help
     -b, --bail             Exit on WebIDL parse failure
     --merge                Merge WebIDL definitions by unioning interface and
                            dictionary members
-    --no-merge             Don't merge WebIDL definitions; if a merge is
+    --no-duplicates        Don't merge WebIDL definitions; if a merge is
                            required and this option is specified, the process
                            exits
     -o, --out <dir>        Directory to write the WebIDL to (defaults to ./idl)
@@ -144,7 +144,7 @@ $ webidl-tools flow --help
     -b, --bail             Exit on WebIDL parse failure
     --merge                Merge WebIDL definitions by unioning interface and
                            dictionary members (default)
-    --no-merge             Don't merge WebIDL definitions; if a merge is
+    --no-duplicates        Don't merge WebIDL definitions; if a merge is
                            required and this option is specified, the process
                            exits
     -o, --out <dir>        Directory to write Flow type declarations to
@@ -166,27 +166,22 @@ $ webidl-tools js --help
 
   Options:
 
-    -h, --help                   output usage information
-    -V, --version                output the version number
-    --rename <s/foo/bar/>        Rename WebIDL interface, argument, etc.,
-                                 names (can be specified multiple times;
-                                 applied after --skip)
-    --only </foo/>               Only process WebIDL definitions with the
-                                 given name (can be specified multiple times)
-    --skip </foo/>               Skip WebIDL definitions with the given name
-                                 (can be specified multiple times; applied
-                                 after --only)
-    -b, --bail                   Exit on WebIDL parse failure
-    --merge                      Merge WebIDL definitions by unioning
-                                 interface and dictionary members (default)
-    --no-merge                   Don't merge WebIDL definitions; if a merge
-                                 is required and this option is specified,
-                                 the process exits
-    --flow-types-in-comments     Include Flow types in comments (default)
-    --no-flow-types-in-comments  Do not include Flow types in comments
-    --jsdoc                      Include JSDoc comments (default)
-    --no-jsdoc                   Do not include JSDoc comments
-    -o, --out <file>             File to write JavaScript code to (defaults
-                                 to ./validators.js)
+    -h, --help             output usage information
+    -V, --version          output the version number
+    --rename <s/foo/bar/>  Rename WebIDL interface, argument, etc., names
+                           (can be specified multiple times; applied after
+                           --skip)
+    --only </foo/>         Only process WebIDL definitions with the given
+                           name (can be specified multiple times)
+    --skip </foo/>         Skip WebIDL definitions with the given name (can
+                           be specified multiple times; applied after --only)
+    -b, --bail             Exit on WebIDL parse failure
+    --merge                Merge WebIDL definitions by unioning interface and
+                           dictionary members (default)
+    --no-duplicates        Don't merge WebIDL definitions; if a merge is
+                           required and this option is specified, the process
+                           exits
+    -o, --out <file>       File to write JavaScript code to (defaults to
+                           ./validators.js)
 
 ```
