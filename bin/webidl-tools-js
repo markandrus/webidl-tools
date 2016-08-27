@@ -7,7 +7,7 @@ var description = 'Generate JavaScript code from WebIDL definitions. The ' +
   'multiple WebIDL definitions with the same name are provided, they will ' +
   'be merged. This command also accepts URLs.';
 
-var js = require('../lib/js');
+var js = require('../lib/javascript');
 var webidl = require('../lib/webidl');
 var o = 23;
 var w = 74;
