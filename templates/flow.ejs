@@ -1,11 +1,11 @@
 <%_ if (node.type === 'interface' || node.type === 'callback interface') { _%>
-<%- template('flow/class.ejs')({ node: node }) -%>
+<%- include({ node: node, template: './flow/class.ejs' }) -%>
 <%_ } else if (node.type === 'callback') { _%>
-<%- template('flow/callback.ejs')({ node: node }) -%>
+<%- include({ node: node, template: './flow/callback.ejs' }) -%>
 <%_ } else if (node.type === 'dictionary' || node.type === 'exception') { _%>
-<%- template('flow/dictionary.ejs')({ node: node }) -%>
+<%- include({ node: node, template: './flow/dictionary.ejs' }) -%>
 <%_ } else if (node.type === 'enum') { _%>
-<%- template('flow/enum.ejs')({ node: node }) -%>
+<%- include({ node: node, template: './flow/enum.ejs' }) -%>
 <%_ } else if (node.type === 'typedef') { _%>
-<%- template('flow/typedef.ejs')({ node: node }) -%>
+<%- include({ node: node, template: './flow/typedef.ejs' }) -%>
 <%_ } _%>

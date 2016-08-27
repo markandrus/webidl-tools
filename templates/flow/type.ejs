@@ -2,14 +2,14 @@
 <%- idlType -%>
 <%_ } else if (idlType instanceof Array) { _%>
 <%_ idlType.forEach((type, i) => { _%>
-<%- template('flow/type.ejs')({ idlType: type }) -%><%= i === idlType.length - 1 ? '' : ' | ' -%>
+<%- include({ idlType: type, template: './type.ejs' }) -%><%= i === idlType.length - 1 ? '' : ' | ' -%>
 <%_ }) _%>
 <%_ } else if (typeof idlType === 'object') { _%>
 <%= idlType.nullable ? '?' : '' -%>
 <%_ if (idlType.generic) { _%>
 <%= idlType.generic -%>
-<<%- template('flow/type.ejs')({ idlType: idlType.idlType }) -%>>
+<<%- include({ idlType: idlType.idlType, template: './type.ejs' }) -%>>
 <%_ } else { _%>
-<%- template('flow/type.ejs')({ idlType: idlType.idlType }) -%>
+<%- include({ idlType: idlType.idlType, template: './type.ejs' }) -%>
 <%_ } _%>
 <%_ } _%>

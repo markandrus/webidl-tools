@@ -11,13 +11,13 @@ function validate<%= node.name %>(unvalidated /* : any */) /* : <%= node.name %>
     throw new TypeError('<%= member.name %> is required');
   }
 
-  validated['<%= member.name %>'] = makeValidator(<%= template('js/validate.ejs')({ idlType: member.idlType }) %>)(unvalidated['<%= member.name %>']);
+  validated['<%= member.name %>'] = makeValidator(<%- include({ idlType: member.idlType, template: './validate.ejs' }) %>)(unvalidated['<%= member.name %>']);
 <% } else { -%>
   if ('<%= member.name %>' in unvalidated) {
-    validated['<%= member.name %>'] = makeValidator(<%= template('js/validate.ejs')({ idlType: member.idlType }) %>)(unvalidated['<%= member.name %>']);
+    validated['<%= member.name %>'] = makeValidator(<%- include({ idlType: member.idlType, template: './validate.ejs' }) %>)(unvalidated['<%= member.name %>']);
 <% if (member.default && 'value' in member.default) { -%>
   } else {
-    validated['<%= member.name %>'] = <%- template('js/default.ejs')({ member: member }) -%>;
+    validated['<%= member.name %>'] = <%- include({ member: member, template: './default.ejs' }) -%>;
   }
 <% } else {-%>
   }

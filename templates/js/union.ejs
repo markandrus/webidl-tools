@@ -1,1 +1,1 @@
-validateUnion(<%_ idlTypes.forEach((idlType, i) => { _%>makeValidator(<%- template('js/validate.ejs')({ idlType: idlType }) -%>)<%= i === idlTypes.length - 1 ? '' : ', ' %><%_ }) _%>)
+validateUnion(<%_ idlTypes.forEach((idlType, i) => { _%>makeValidator(<%- include({ idlType: idlType, template: './validate.ejs' }) -%>)<%= i === idlTypes.length - 1 ? '' : ', ' %><%_ }) _%>)

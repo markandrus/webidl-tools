@@ -1,9 +1,9 @@
-enum <%- node.name %> {
+enum <%- enumName(node) %> {
 <%_ node.values.forEach((value, i) => { _%>
-<%- '  k' + cppEnum(value) + (i < node.values.length - 1 ? ',' : '') %>
+<%- '  ' + toEnumName(node.name, value) + (i < node.values.length - 1 ? ',' : '') %>
 <%_ }) _%>
 };
 
-v8::Local<v8::Value> <%- node.name %>ToV8(<%- node.name %> parsed);
+v8::Local<v8::Value> <%- enumName(node) %>ToV8(<%- enumName(node) %> parsed);
 
-Nan::Maybe<<%- node.name %>> <%- node.name %>FromV8(v8::Local<v8::Value> unparsed, std::string *error);
+Nan::Maybe<<%- enumName(node) %>> <%- enumName(node) %>FromV8(v8::Local<v8::Value> unparsed, std::string *error);

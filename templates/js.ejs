@@ -74,16 +74,16 @@ var validateObject = validateObject;
 
 <%_ nodes.forEach(node => { _%>
 <%_ if (node.type === 'interface') { _%>
-<%- template('js/interface.ejs')({ node: node }) %>
+<%- include({ node: node, template: './js/interface.ejs' }) %>
 
 <%_ } else if (node.type === 'dictionary') { _%>
-<%- template('js/dictionary.ejs')({ node: node }) %>
+<%- include({ node: node, template: './js/dictionary.ejs' }) %>
 
 <%_ } else if (node.type === 'enum') { _%>
-<%- template('js/enum.ejs')({ node: node }) %>
+<%- include({ node: node, template: './js/enum.ejs' }) %>
 
 <%_ } else if (node.type === 'typedef') { _%>
-<%- template('js/typedef.ejs')({ node: node }) %>
+<%- include({ node: node, template: './js/typedef.ejs' }) %>
 
 <%_ } _%>
 <%_ }) _%>

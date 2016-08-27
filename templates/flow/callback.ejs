@@ -1,1 +1,1 @@
-type <%= node.name %> = <%- template('flow/arguments.ejs')({ arguments: node.arguments }) -%> => <%- template('flow/type.ejs')({ idlType: node.idlType }) -%>;
+type <%= node.name %> = <%- include({ arguments: node.arguments, template: './arguments.ejs' }) -%> => <%- include({ idlType: node.idlType, template: './type.ejs' }) -%>;

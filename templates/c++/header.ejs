@@ -1,5 +1,5 @@
-#ifndef SRC_<%- allCaps(node.name) -%>_H_
-#define SRC_<%- allCaps(node.name) -%>_H_
+#ifndef <%- headerDefine(node) %>
+#define <%- headerDefine(node) %>
 
 #include "nan.h"
 #include "v8.h"
@@ -7,12 +7,12 @@
 namespace <%- namespace -%> {
 
 <%_ if (node.type === 'dictionary') { _%>
-<%-   template('c++/dictionary.h.ejs')({ node: node }); %>
+<%-   include({ template: './dictionary.h.ejs' }); %>
 <%_ } else if (node.type === 'enum') { _%>
-<%-   template('c++/enum.h.ejs')({ node: node }); %>
+<%-   include({ template: './enum.h.ejs' }); %>
 <%_ } _%>
 
 }  // namespace <%- namespace %>
 
-#endif  // SRC_<%- allCaps(node.name) -%>_H_
+#endif  // <%- headerDefine(node) %>
 
