@@ -23,5 +23,5 @@ webidl.addOptions(program, o, w, { merge: true })
 if (require.main === module) {
   program.parse(process.argv);
   var idls = program.args && program.args.length ? program.args : ['idl/*'];
-  js(idls, program);
+  new js(program).run(idls);
 }
