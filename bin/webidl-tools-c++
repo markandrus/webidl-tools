@@ -8,7 +8,7 @@ var description = 'Generate C++ code from WebIDL definitions. If multiple ' +
 
 var cpp = require('../lib/c++');
 var webidl = require('../lib/webidl');
-var o = 23;
+var o = 25;
 var w = 74;
 
 var program = util.program(exports, description)
@@ -21,9 +21,12 @@ webidl.addOptions(program, o, w, { merge: true })
   .option('-o, --out <file>', util.wrap(
     'Directory to write C++ code to (defaults to ./src)', o, w),
     'src')
+  .option('--path <path>', util.wrap(
+    'The path to use in #include pragmas, etc.', o, w),
+    'src')
   .option('--suffix <suffix>', util.wrap(
     'The suffix to use for C++ files (defaults to "cc")', o, w),
-    'cc')
+    'cc');
 
 if (require.main === module) {
   program.parse(process.argv);
