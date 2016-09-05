@@ -34,7 +34,13 @@
     "webidl2": "git://github.com/markandrus/webidl2.js.git#e470735423d73fbbc20d472d9e0174592b80a463",
     "winston": "^2.2.0"
   },
-  "bin": "bin/webidl-tools",
+  "bin": {
+    "webidl-tools": "bin/webidl-tools",
+    "webidl-tools-c++": "bin/webidl-tools-c++",
+    "webidl-tools-extract": "bin/webidl-tools-extract",
+    "webidl-tools-flow": "bin/webidl-tools-flow",
+    "webidl-tools-js": "bin/webidl-tools-js"
+  },
   "devDependencies": {
     "flow-bin": "^0.22.1"
   }
